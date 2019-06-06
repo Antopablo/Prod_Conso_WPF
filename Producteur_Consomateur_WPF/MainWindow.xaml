@@ -1,0 +1,49 @@
+﻿<Window x:Class="Producteur_Consomateur_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Producteur_Consomateur_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid Margin="0,0,-0.4,1.4">
+        <ListView Name="ListeView_Prod" HorizontalAlignment="Left" Height="330" Margin="85,24,0,0" VerticalAlignment="Top" Width="236" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="NOM" Width="120" DisplayMemberBinding="{Binding Nom}"></GridViewColumn>
+                    <GridViewColumn Header="ETAT" Width="120" DisplayMemberBinding="{Binding Pause}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="ListeView_Conso" HorizontalAlignment="Left" Height="335" Margin="446,24,0,0" VerticalAlignment="Top" Width="241"  SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="NOM" Width="120"  DisplayMemberBinding="{Binding Nom}"></GridViewColumn>
+                    <GridViewColumn Header="ETAT" Width="120" DisplayMemberBinding="{Binding Pause}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ProgressBar Name="Pipe" HorizontalAlignment="Left" Height="107" Margin="221,137,0,0" VerticalAlignment="Top" Width="325" RenderTransformOrigin="0.5,0.5" Minimum="0" Maximum="20">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <Button Name="Bouton_Ajouter_Prod" Content="Ajouter Prod" HorizontalAlignment="Left" Margin="85,359,0,0" VerticalAlignment="Top" Width="89" Height="36" Click="Bouton_Ajouter_Prod_Click"/>
+        <Button Name="Bouton_Pause_Prod" Content="Boire une bière" HorizontalAlignment="Left" Margin="232,359,0,0" VerticalAlignment="Top" Width="89" Height="36" Click="Bouton_Pause_Prod_Click"/>
+        <Button Name="Bouton_Ajouter_Conso" Content="Ajouter Conso" HorizontalAlignment="Left" Margin="446,364,0,0" VerticalAlignment="Top" Width="80" Height="36" Click="Bouton_Ajouter_Conso_Click"/>
+        <Button Name="Bouton_Pause_Conso" Content="Gilet Jaune" HorizontalAlignment="Left" Margin="615,364,0,0" VerticalAlignment="Top" Width="80" Height="36" Click="Bouton_Pause_Conso_Click"/>
+        <Label Content="Producteur" HorizontalAlignment="Left" Margin="10,0,0,336" VerticalAlignment="Bottom"/>
+        <Label Content="Consommateur" HorizontalAlignment="Left" Margin="692,0,0,336" VerticalAlignment="Bottom"/>
+        <TextBox Name="Choix_nom_Prod" HorizontalAlignment="Left" Height="23" Margin="85,415,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236"/>
+        <TextBox Name="Choix_nom_Conso" HorizontalAlignment="Left" Height="23" Margin="446,415,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="241"/>
+        <TextBlock Name="Compteur_Prod" HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61"/>
+        <TextBlock Name="Compteur_Conso" HorizontalAlignment="Left" Margin="709,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61"/>
+    </Grid>
+</Window>
